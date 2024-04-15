@@ -4,6 +4,9 @@
 #include "qtablewidget.h"
 #include <QMainWindow>
 #include <QDebug>
+#include <QFile>
+#include <QStandardPaths>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,9 +23,15 @@ public:
     ~MainWindow();
 
 private slots:
+    void loadTable();
+
+    void saveTable();
+
     void on_btnGenerate_clicked();
 
     void on_btnAdd_clicked();
+
+    void addItemToTable(QString* sitetxt, QString* pwtxt);
 
     void on_btnRemove_clicked();
 

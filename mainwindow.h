@@ -3,6 +3,7 @@
 
 #include "qtablewidget.h"
 #include <QMainWindow>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -27,8 +28,14 @@ private slots:
 
     void displayTable();
 
+    void on_tableWidget_itemClicked(QTableWidgetItem *item);
+
 private:
     Ui::MainWindow *ui;
     QTableWidget* table;
+    bool cellActive;
+    int rowActive;
+    const QString characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&";
+    int PW_LEN = 16;
 };
 #endif // MAINWINDOW_H

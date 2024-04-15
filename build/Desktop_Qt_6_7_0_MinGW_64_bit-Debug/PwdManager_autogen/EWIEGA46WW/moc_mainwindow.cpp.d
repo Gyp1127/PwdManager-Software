@@ -1,5 +1,6 @@
 C:/Users/yupin/Documents/PwdManager/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/PwdManager_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/yupin/Documents/PwdManager/mainwindow.h \
   C:/Users/yupin/Documents/PwdManager/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/PwdManager_autogen/moc_predefs.h \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \

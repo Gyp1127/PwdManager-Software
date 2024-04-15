@@ -9,6 +9,7 @@ PwdManager_autogen/timestamp: \
   C:/Users/yupin/Documents/PwdManager/mainwindow.cpp \
   C:/Users/yupin/Documents/PwdManager/mainwindow.h \
   C:/Users/yupin/Documents/PwdManager/mainwindow.ui \
+  D:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \

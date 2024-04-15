@@ -7,7 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QWidget::setWindowTitle("Password Manager");
+
+    cellActive = false;
     table = new QTableWidget(ui->tableWidget);
+    // connect(ui->tableWidget, &QTableWidget::itemClicked, this, &MainWindow::on_tableWidget_itemClicked);
+    // connect(ui->btnRemove, &QPushButton::clicked, this, &MainWindow::on_btnRemove_clicked);
     displayTable();
     // setCentralWidget(table);
 
@@ -93,18 +97,37 @@ void MainWindow::on_btnAdd_clicked()
 
 void MainWindow::on_btnRemove_clicked()
 {
+    // if (cellActive)
+    // {
+    //     ui->tableWidget->removeRow(rowActive);
+    //     cellActive = false;
+    // }
+
+    QWidget *w = qobject_cast<QWidget *>(sender()->parent());
+    if(w){
+        int row = ui->tableWidget->indexAt(w->pos()).row();
+        ui->tableWidget->removeRow(row);
+        ui->tableWidget->setCurrentCell(0, 0);
+    }
 
 }
 
 void MainWindow::on_btnGenerate_clicked()
 {
+    QString password = "";
+    srand(time(NULL));
 
+    for (int i = 0; i < PW_LEN; i++) {
+        int randomIndex = rand() % characters.length();
+        password += characters[randomIndex];
+    }
+
+    ui->pwText->setText(password);
 }
+
 
 void MainWindow::displayTable()
 {
-    // table = new QTableWidget(this);
-
     table->setRowCount(0);
     table->setColumnCount(2);
 
@@ -113,14 +136,15 @@ void MainWindow::displayTable()
     hlabels << "Site" << "Password";
     table->setHorizontalHeaderLabels(hlabels);
 
-    table->setMinimumSize(600, 450);
-    table->setColumnWidth(0, 150);
-    table->setColumnWidth(1, 450);
-    // table->setMaximumSize(800, 600);
+    table->setMinimumSize(570, 450);
+    table->setColumnWidth(0, 100);
+    table->setColumnWidth(1, 470);
 
-
-    // table->setHorizontalHeaderLabels(QStringList() << "Site" << "Password");
 }
 
-
-
+void MainWindow::on_tableWidget_itemClicked(QTableWidgetItem *item)
+{
+    cellActive = true;
+    rowActive = item->row();
+    qDebug() << ui->tableWidget->itemAt(rowActive, 0)->text();
+}
